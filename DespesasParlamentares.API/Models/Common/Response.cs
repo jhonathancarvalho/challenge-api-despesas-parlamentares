@@ -1,7 +1,4 @@
-﻿using DespesasParlamentares.API.Implementation.Interface;
-using Microsoft.AspNetCore.Mvc;
-
-namespace DespesasParlamentares.API.Models.Common
+﻿namespace DespesasParlamentares.API.Models.Common
 {
     public class Response<T>
     {
