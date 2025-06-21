@@ -15,3 +15,4 @@ namespace DespesasParlamentares.API.Infrastructure.Configuration
             builder.Property(d => d.PartidoPolitico).IsRequired().HasMaxLength(50);
         }
     }
+}

@@ -4,10 +4,10 @@ namespace DespesasParlamentares.API.Implementation.Interface
 {
     public interface IDeputadoServices
     {
-        Task<List<DeputadoDTO>> ListarDeputadosPorEstadoAsync(string uf);
+        Task<List<DeputadoDTO>> ListarDeputadosPorEstadoAsync(string unidadeFederativa);
 
-        Task<DeputadoComDespesaDTO> ObterDeputadoComDespesasAsync(string uf, Guid id);
+        Task<DeputadoComDespesaDTO> ObterDeputadoComDespesasAsync(string unidadeFederativa, Guid id);
 
-        Task<DespesasPorEstadoDTO> ObterDespesaPorEstadoAsync(string unidadeFederativa);
+
     }
 }

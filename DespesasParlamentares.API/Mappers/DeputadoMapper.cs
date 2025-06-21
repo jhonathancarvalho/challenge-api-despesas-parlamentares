@@ -6,13 +6,13 @@ namespace DespesasParlamentares.API.Mappers
 {
     public static class DeputadoMapper
     {
-        public static List<DeputadoDTO> MapearParaListaDto(this List<Deputado> deputado) 
+        public static List<DeputadoDTO> MapearParaListaDto(this List<Deputado> deputado)
         {
             return deputado.Select(dep => new DeputadoDTO(
-                dep.Id, 
+                dep.Id,
                 dep.Nome,
-                dep.CPF, 
-                dep.UnidadeFederativa, 
+                dep.CPF,
+                dep.UnidadeFederativa,
                 dep.PartidoPolitico))
                 .ToList();
         }

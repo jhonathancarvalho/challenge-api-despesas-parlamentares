@@ -8,34 +8,26 @@ namespace DespesasParlamentares.API.Implementation.Services
     public class DeputadoServices : IDeputadoServices
     {
         private readonly IDeputadoRepository _deputadoRepository;
-        private readonly IDespesaRepository _despesaRepository;
+        private readonly IDespesasRepository _despesasRepository;
 
-        public DeputadoServices(IDeputadoRepository deputadoRepository, IDespesaRepository despesaRepository)
+        public DeputadoServices(IDeputadoRepository deputadoRepository, IDespesasRepository despesaRepository)
         {
             _deputadoRepository = deputadoRepository;
-            _despesaRepository = despesaRepository;
+            _despesasRepository = despesaRepository;
         }
 
-        public async Task<List<DeputadoDTO>> ListarDeputadosPorEstadoAsync(string uf)
+        public async Task<List<DeputadoDTO>> ListarDeputadosPorEstadoAsync(string unidadeFederativa)
         {
-            var deputados = await _deputadoRepository.ListarDeputadosPorEstadoAsync(uf);
+            var deputados = await _deputadoRepository.ListarDeputadosPorEstadoAsync(unidadeFederativa);
 
             return deputados.MapearParaListaDto();
         }
 
-        public async Task<DeputadoComDespesaDTO> ObterDeputadoComDespesasAsync(string uf, Guid id)
+        public async Task<DeputadoComDespesaDTO> ObterDeputadoComDespesasAsync(string unidadeFederativa, Guid id)
         {
-            var deputado = await _deputadoRepository.ObterDeputadoComDespesaPorEstadoAsync(uf, id);
+            var deputado = await _deputadoRepository.ObterDeputadoComDespesaPorEstadoAsync(unidadeFederativa, id);
 
             return deputado is null ? null : deputado.MapearParaDto();
-
-        }
-
-        public async Task<DespesasPorEstadoDTO> ObterDespesaPorEstadoAsync(string unidadeFederativa)
-        {
-            var despesas = await _despesaRepository.ObterTotalDespesasPorEstadoAsync(unidadeFederativa);
-
-            return despesas.MapearParaDto();
 
         }
     }

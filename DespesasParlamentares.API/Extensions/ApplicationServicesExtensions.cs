@@ -9,6 +9,7 @@ namespace DespesasParlamentares.API.Extensions
         {
             services.AddScoped<IBaseDadosServices, BaseDadosServices>();
             services.AddScoped<IDeputadoServices, DeputadoServices>();
+            services.AddScoped<IDespesasServices, DespesasServices>();
 
             return services;
         }

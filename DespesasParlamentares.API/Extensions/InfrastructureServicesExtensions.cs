@@ -13,7 +13,7 @@ namespace DespesasParlamentares.API.Extensions
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IDeputadoRepository, DeputadoRepository>();
-            services.AddScoped<IDespesaRepository, DespesaRepository>();
+            services.AddScoped<IDespesasRepository, DespesasRepository>();
 
             return services;
         }
